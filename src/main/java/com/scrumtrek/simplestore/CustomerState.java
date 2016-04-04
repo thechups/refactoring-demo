@@ -35,7 +35,7 @@ public class CustomerState {
     }
 
     public List<CustomerMovieState> getMovieStates() {
-        return movieStates;
+        return new ArrayList<>(movieStates);
     }
 
     public void addMovieStates(CustomerMovieState movieState) {
