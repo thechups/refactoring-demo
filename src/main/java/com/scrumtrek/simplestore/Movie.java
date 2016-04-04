@@ -1,5 +1,9 @@
 package com.scrumtrek.simplestore;
 
+/*
+Class movie.
+contains movie name and it`s price code.
+*/
 public class Movie {
     private String m_Title;
     private PriceCodes m_PriceCode;
@@ -11,10 +15,6 @@ public class Movie {
 
     public PriceCodes getPriceCode() {
         return m_PriceCode;
-    }
-
-    public void setPriceCode(PriceCodes value) {
-        m_PriceCode = value;
     }
 
     public String getTitle() {
