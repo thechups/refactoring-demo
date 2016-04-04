@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    CustomerStateBuilder stateBuilder = new CustomerStateBuilder();
+    private CustomerStateBuilder stateBuilder = new CustomerStateBuilder();
     private String m_Name;
     private List<Rental> m_Rentals = new ArrayList<>();
 
