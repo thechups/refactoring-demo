@@ -52,10 +52,10 @@ public class CustomerTest {
 
     }
 
-    @Test
-    public void testAddRental() {
-        custMickeyMouse.Statement();
-    }
+//    @Test
+//    public void testAddRental() {
+//        custMickeyMouse.Statement();
+//    }
 
     @Test
     public void nameTest() {
