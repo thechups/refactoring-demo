@@ -41,9 +41,9 @@ public class CustomerTest {
 
         assertEquals("Rental record for Mickey Mouse\n" +
                 "\tCinderella\t3.0\n" +
-                "\tStar Wars\t6.5\n" +
-                "\tGladiator\t15.0\n" +
-                "Amount owed is 24.5\n" +
+                "\tStar Wars\t14.0\n" +
+                "\tGladiator\t45.0\n" +
+                "Amount owed is 62.0\n" +
                 "You earned 4 frequent renter points.", statement);
     }
 
