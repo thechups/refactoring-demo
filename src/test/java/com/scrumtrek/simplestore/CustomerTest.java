@@ -2,6 +2,8 @@ package com.scrumtrek.simplestore;
 
 import org.junit.Test;
 
+import java.io.Console;
+
 import static org.junit.Assert.*;
 
 
@@ -36,7 +38,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testAddRental() {
+    public void testStatement() {
         String statement = custMickeyMouse.Statement();
 
         assertEquals("Rental record for Mickey Mouse\n" +
@@ -47,6 +49,13 @@ public class CustomerTest {
                 "You earned 4 frequent renter points.", statement);
     }
 
+    @Test
+    public void testStatementJson() {
+        String statement = custMickeyMouse.StatementJson();
+
+        System.out.print(statement);
+        assertEquals("{customerName:'Mickey Mouse'totalAmount'62.0'frequentRenterPoints:'4'[{movieName:'Cinderella', amount:'3.0'},{movieName:'Star Wars', amount:'14.0'},{movieName:'Gladiator', amount:'45.0'}]}", statement);
+    }
     @Test
     public void nameTest() {
         assertEquals("Mickey Mouse", custMickeyMouse.getName());

@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
+    CustomerStateBuilder stateBuilder = new CustomerStateBuilder();
     private String m_Name;
     private List<Rental> m_Rentals = new ArrayList<>();
 
     public Customer(String name) {
         m_Name = name;
+    }
+
+    public List<Rental> getRentals() {
+        return m_Rentals;
     }
 
     public String getName() {
@@ -21,52 +26,41 @@ public class Customer {
     }
 
     public String Statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
+
+
+        CustomerState state = stateBuilder.GetCustomerState(this);
 
         String result = "Rental record for " + m_Name + "\n";
 
-        for (Rental each : m_Rentals) {
-            double thisAmount = 0;
+        for (CustomerMovieState moviewState : state.getMovieStates()) {
 
-            // Determine amounts for each line
-            switch (each.getMovie().getPriceCode()) {
-                case Regular:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2) {
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
-                    }
-                    break;
-
-                case NewRelease:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
-
-                case Childrens:
-                    thisAmount += 1.5;
-                    if (each.getDaysRented() > 3) {
-                        thisAmount = (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
-
-            // Add frequent renter points
-            frequentRenterPoints++;
-
-            // Add bonus for a two-day new-release rental
-            if ((each.getMovie().getPriceCode() == PriceCodes.NewRelease) && (each.getDaysRented() > 1)) {
-                frequentRenterPoints++;
-            }
-
-            // Show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + moviewState.getMovie().getTitle() + "\t" + moviewState.getAmount() + "\n";
         }
 
         // Add footer lines
-        result += "Amount owed is " + totalAmount + "\n";
-        result += "You earned " + frequentRenterPoints + " frequent renter points.";
+        result += "Amount owed is " + state.getTotalAmount() + "\n";
+        result += "You earned " + state.getFrequentRenterPoints() + " frequent renter points.";
         return result;
+    }
+
+    public String StatementJson() {
+        CustomerState state = stateBuilder.GetCustomerState(this);
+        String result = "{" +
+                "customerName:'" + this.getName() + "'" +
+                "totalAmount'" + state.getTotalAmount() + "'" +
+                "frequentRenterPoints:'" + state.getFrequentRenterPoints() + "'" +
+                getJsonMovieStates(state.getMovieStates()) +
+                "}";
+        return result;
+    }
+
+    private String getJsonMovieStates(List<CustomerMovieState> states) {
+        String result = "";
+        for (CustomerMovieState state : states) {
+            result += "{movieName:'" + state.getMovie().getTitle() + "', amount:'" + state.getAmount() + "'},";
+        }
+        result = result.substring(0, result.length() - 1);
+        return "[" + result + "]";
     }
 }
 
