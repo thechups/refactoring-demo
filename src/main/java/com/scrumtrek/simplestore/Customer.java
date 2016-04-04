@@ -13,7 +13,7 @@ public class Customer {
     }
 
     public List<Rental> getRentals() {
-        return m_Rentals;
+        return new ArrayList<>(m_Rentals);
     }
 
     public String getName() {
