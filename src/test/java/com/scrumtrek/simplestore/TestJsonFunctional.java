@@ -68,7 +68,7 @@ public class TestJsonFunctional {
     }
 
     @Test
-    public void testSimpleReport(){
+    public void testSimpleReport() {
         assertTrue(simpleStatement.contains("Customer {\n" +
                 " name:Mickey Mouse,\n" +
                 " fullAmount:24.5\n" +
@@ -76,7 +76,7 @@ public class TestJsonFunctional {
     }
 
     @Test
-    public void testMiddleReport(){
+    public void testMiddleReport() {
         assertEquals(middleStatement, "Customer {\n" +
                 " name:Mickey Mouse,\n" +
                 " Rental {\n" +

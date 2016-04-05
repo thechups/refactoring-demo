@@ -7,14 +7,14 @@ public class RegularPriceCode extends PriceCode {
     /**
      * Common for regular movies price value
      * with days threshold
+     *
      * @param daysRented
      * @return rentAmount
      */
     @Override
     public double getRentAmount(int daysRented) {
         double amount = BASE_AMOUNT;
-        if (daysRented > DAYS_THRESHOLD)
-        {
+        if (daysRented > DAYS_THRESHOLD) {
             amount += (daysRented - 2) * 1.5;
         }
         return amount;

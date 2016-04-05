@@ -7,7 +7,8 @@ import com.scrumtrek.simplestore.reports.BaseReport;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by USER on 04.04.2016.

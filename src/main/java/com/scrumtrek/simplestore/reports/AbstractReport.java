@@ -10,49 +10,55 @@ public abstract class AbstractReport {
     protected double fullRentalAmount;
     protected Customer customer;
 
-    public AbstractReport(Customer customer){
-      this.customer = customer;
+    public AbstractReport(Customer customer) {
+        this.customer = customer;
     }
 
 
-    protected void countFullRentalAmountAndFreqPoints(){
+    protected void countFullRentalAmountAndFreqPoints() {
         fullRentalAmount = 0;
         double discount = customer.getDiscountPercent();
 
-        for(Rental rental : customer.getRentals()) {
+        for (Rental rental : customer.getRentals()) {
             fullRentalAmount += rental.getAmount(discount);
         }
     }
 
     /**
      * Builds simple report with header and footer only
+     *
      * @return
      */
-    public String getSimpleReport(){
+    public String getSimpleReport() {
         countFullRentalAmountAndFreqPoints();
-        return getHeader()+getFooter();
+        return getHeader() + getFooter();
     }
 
     /**
      * Builds report with header, rents and footer only
+     *
      * @return
      */
-    public String getMiddleReport(){
+    public String getMiddleReport() {
         countFullRentalAmountAndFreqPoints();
-        return getHeader()+getMiddleBody()+getFooter();
+        return getHeader() + getMiddleBody() + getFooter();
     }
 
     /**
      * Builds report with header, rents, movies and footer only
+     *
      * @return
      */
-    public String getDetailReport(){
+    public String getDetailReport() {
         countFullRentalAmountAndFreqPoints();
-        return getHeader()+getDetailedBody()+getFooter();
+        return getHeader() + getDetailedBody() + getFooter();
     }
 
     protected abstract String getHeader();
+
     protected abstract String getMiddleBody();
+
     protected abstract String getDetailedBody();
+
     protected abstract String getFooter();
 }
