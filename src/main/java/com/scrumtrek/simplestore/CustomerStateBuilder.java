@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore;
 
 /**
- * Creates CustomerState by customer.
+ * Creates CustomerState by customer. For building report
  */
 public class CustomerStateBuilder {
 

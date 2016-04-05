@@ -29,6 +29,12 @@ public class Customer {
         rentals.add(arg);
     }
 
+
+    /**
+     * Creates text report by customer state
+     *
+     * @return
+     */
     public String statement() {
 
 
@@ -42,9 +48,14 @@ public class Customer {
 
         // Add footer lines
         result += "Amount owed is " + state.getTotalAmount() + "\n";
-         return result;
+        return result;
     }
 
+    /**
+     * Creates json report by customer state
+     *
+     * @return
+     */
     public String statementJson() {
         CustomerState state = stateBuilder.getCustomerState(this);
         return "{" +

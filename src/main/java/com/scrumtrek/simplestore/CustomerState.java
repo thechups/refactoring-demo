@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class represents report data.
+ * Class contains customer state
  */
 public class CustomerState {
     private double totalAmount;

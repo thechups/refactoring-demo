@@ -1,8 +1,5 @@
 package com.scrumtrek.simplestore;
 
-/**
- * Class represents movie and it`s enum.
- */
 public class CustomerMovieState {
     private Movie movie;
     private double amount;

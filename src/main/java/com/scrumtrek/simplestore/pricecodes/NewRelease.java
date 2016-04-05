@@ -5,9 +5,10 @@ package com.scrumtrek.simplestore.pricecodes;
  * New release movies
  */
 public class NewRelease extends PriceCode {
-    public NewRelease(){
+    public NewRelease() {
         setName("NewRelease");
     }
+
     @Override
     public double getAmount(int daysRented) {
         return daysRented * 3.0;

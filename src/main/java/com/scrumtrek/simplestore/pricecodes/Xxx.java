@@ -5,12 +5,13 @@ package com.scrumtrek.simplestore.pricecodes;
  * Xxx price code ( adult movies :))
  */
 public class Xxx extends PriceCode {
-    public Xxx(){
+    public Xxx() {
         setName("Xxx");
     }
+
     @Override
     public double getAmount(int daysRented) {
-        double amount = 4;
+        double amount = 2;
         if (daysRented > 4) {
             amount += (daysRented - 4) * 1.5;
         }

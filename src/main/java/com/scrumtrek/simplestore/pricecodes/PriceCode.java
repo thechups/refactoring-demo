@@ -14,16 +14,14 @@ public abstract class PriceCode {
         return name;
     }
 
-    /**
-     * set pricecode name
-     * @param name
-     */
     protected void setName(String name) {
         this.name = name;
     }
 
     /**
-     * count AMOUNT
+     * Calculate amount by days.
+     * Should be overrided by children.
+     *
      * @param daysRented
      * @return
      */

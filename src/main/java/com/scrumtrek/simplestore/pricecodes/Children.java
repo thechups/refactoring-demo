@@ -6,7 +6,7 @@ package com.scrumtrek.simplestore.pricecodes;
  */
 public class Children extends PriceCode {
 
-    public Children(){
+    public Children() {
         setName("Children");
     }
 

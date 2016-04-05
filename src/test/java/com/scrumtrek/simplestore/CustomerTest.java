@@ -39,7 +39,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testStatement() {
+    public void testTextReport() {
         String statement = custMickeyMouse.statement();
 
         assertEquals("Rental record for Mickey Mouse\n" +
@@ -50,7 +50,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testStatementJson() {
+    public void testJsonReport() {
         String statement = custMickeyMouse.statementJson();
 
         System.out.print(statement);

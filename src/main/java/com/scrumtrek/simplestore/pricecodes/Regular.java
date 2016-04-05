@@ -5,9 +5,10 @@ package com.scrumtrek.simplestore.pricecodes;
  * Regular movies
  */
 public class Regular extends PriceCode {
-    public Regular(){
+    public Regular() {
         setName("Regular");
     }
+
     @Override
     public double getAmount(int daysRented) {
         double amount = 2;
