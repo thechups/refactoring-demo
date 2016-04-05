@@ -17,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 public class TestJsonFunctional {
     private static String statement;
     private static String simpleStatement;
+    private static String middleStatement;
 
     @BeforeClass
     public static void init() {
@@ -40,8 +41,10 @@ public class TestJsonFunctional {
 
         statement = new JsonReport(custMickeyMouse).getDetailReport();
         simpleStatement = new JsonReport(custMickeyMouse).getSimpleReport();
+        middleStatement = new JsonReport(custMickeyMouse).getMiddleReport();
         System.out.println(statement);
         System.out.println(simpleStatement);
+        System.out.println(middleStatement);
     }
 
     @Test
@@ -70,5 +73,22 @@ public class TestJsonFunctional {
                 " name:Mickey Mouse,\n" +
                 " fullAmount:24.5\n" +
                 "}"));
+    }
+
+    @Test
+    public void testMiddleReport(){
+        assertEquals(middleStatement, "Customer {\n" +
+                " name:Mickey Mouse,\n" +
+                " Rental {\n" +
+                "  rentAmount:3.0,\n" +
+                " },\n" +
+                " Rental {\n" +
+                "  rentAmount:6.5,\n" +
+                " },\n" +
+                " Rental {\n" +
+                "  rentAmount:15.0,\n" +
+                " },\n" +
+                " fullAmount:24.5\n" +
+                "}");
     }
 }
