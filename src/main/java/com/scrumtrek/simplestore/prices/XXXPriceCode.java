@@ -7,6 +7,6 @@ public class XXXPriceCode extends RegularPriceCode {
      * коэффициент
      */
     public XXXPriceCode() {
-        DAYS_THRESHOLD = 4;
+        daysThreshold = 4;
     }
 }

@@ -1,8 +1,8 @@
 package com.scrumtrek.simplestore.prices;
 
 public class RegularPriceCode extends PriceCode {
-    protected double BASE_AMOUNT = 2.0;
-    protected double DAYS_THRESHOLD = 2;
+    protected double baseAmount = 2.0;
+    protected double daysThreshold = 2;
 
     /**
      * Common for regular movies price value
@@ -13,8 +13,8 @@ public class RegularPriceCode extends PriceCode {
      */
     @Override
     public double getRentAmount(int daysRented) {
-        double amount = BASE_AMOUNT;
-        if (daysRented > DAYS_THRESHOLD) {
+        double amount = baseAmount;
+        if (daysRented > daysThreshold) {
             amount += (daysRented - 2) * 1.5;
         }
         return amount;
