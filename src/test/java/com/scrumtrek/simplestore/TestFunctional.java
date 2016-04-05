@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 public class TestFunctional {
     private static String detailReport;
     private static String simpleReport;
+    private static String middleReport;
     private static String[] lines;
 
     @BeforeClass
@@ -40,11 +41,12 @@ public class TestFunctional {
 
         detailReport = new BaseReport(custMickeyMouse).getDetailReport();
         simpleReport = new BaseReport(custMickeyMouse).getSimpleReport();
+        middleReport = new BaseReport(custMickeyMouse).getMiddleReport();
 
         lines = detailReport.split("\n");
-        System.out.println(detailReport);
-        System.out.println(simpleReport);
-
+//        System.out.println(detailReport);
+//        System.out.println(simpleReport);
+        System.out.println(middleReport);
     }
 
     @Test
@@ -59,6 +61,15 @@ public class TestFunctional {
     @Test
     public void testSimpleReport() {
         assertEquals(simpleReport, "Rental record for Mickey Mouse\n" +
+                "Amount owed is 24.5\n");
+    }
+
+    @Test
+    public void testMiddleReport() {
+        assertEquals(middleReport, "Rental record for Mickey Mouse\n" +
+                "\t3.0\n" +
+                "\t6.5\n" +
+                "\t15.0\n" +
                 "Amount owed is 24.5\n");
     }
 
