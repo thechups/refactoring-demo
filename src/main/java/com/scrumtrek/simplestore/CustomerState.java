@@ -11,10 +11,6 @@ public class CustomerState {
     private double totalAmount;
     private List<CustomerMovieState> movieStates = new ArrayList<CustomerMovieState>();
 
-
-    public CustomerState() {
-    }
-
     public int getFrequentRenterPoints() {
         return frequentRenterPoints;
     }

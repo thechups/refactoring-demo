@@ -32,9 +32,8 @@ public class Customer {
 
         String result = "Rental record for " + m_Name + "\n";
 
-        for (CustomerMovieState moviewState : state.getMovieStates()) {
-
-            result += "\t" + moviewState.getMovie().getTitle() + "\t" + moviewState.getAmount() + "\n";
+        for (CustomerMovieState movieState : state.getMovieStates()) {
+            result += "\t" + movieState.getMovie().getTitle() + "\t" + movieState.getAmount() + "\n";
         }
 
         // Add footer lines

@@ -4,9 +4,6 @@ package com.scrumtrek.simplestore;
  * Created by serge on 04.04.2016.
  */
 public class CustomerStateBuilder {
-    public CustomerStateBuilder() {
-
-    }
 
     public CustomerState GetCustomerState(Customer customer) {
 
@@ -18,24 +15,20 @@ public class CustomerStateBuilder {
             double thisAmount = 0;
 
             // Determine amounts for each line
-            switch (each.getMovie().getPriceCode()) {
-                case Regular:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2) {
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
-                    }
-                    break;
+            if (each.getMovie().getPriceCode() == PriceCodes.Regular) {
+                thisAmount += 2;
+                if (each.getDaysRented() > 2) {
+                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+                }
 
-                case NewRelease:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
+            } else if (each.getMovie().getPriceCode() == PriceCodes.NewRelease) {
+                thisAmount += each.getDaysRented() * 3;
 
-                case Childrens:
-                    thisAmount += 1.5;
-                    if (each.getDaysRented() > 3) {
-                        thisAmount = (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
+            } else if (each.getMovie().getPriceCode() == PriceCodes.Childrens) {
+                thisAmount += 1.5;
+                if (each.getDaysRented() > 3) {
+                    thisAmount = (each.getDaysRented() - 3) * 1.5;
+                }
             }
 
             // Add frequent renter points
