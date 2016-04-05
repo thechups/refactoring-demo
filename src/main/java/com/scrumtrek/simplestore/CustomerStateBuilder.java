@@ -9,7 +9,6 @@ public class CustomerStateBuilder {
 
         CustomerState result = new CustomerState();
         double totalAmount = 0;
-        int frequentRenterPoints = 0;
 
         for (Rental rental : customer.getRentals()) {
             double thisAmount = 0;
