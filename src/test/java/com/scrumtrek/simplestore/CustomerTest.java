@@ -1,5 +1,8 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.Children;
+import com.scrumtrek.simplestore.pricecodes.NewRelease;
+import com.scrumtrek.simplestore.pricecodes.Regular;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -12,9 +15,9 @@ public class CustomerTest {
     @org.junit.Before
     public void setUp() throws Exception {
         // Create movies
-        Movie movCinderella = new Movie("Cinderella", PriceCodes.CHILDRENS);
-        Movie movStarWars = new Movie("Star Wars", PriceCodes.REGULAR);
-        Movie movGladiator = new Movie("Gladiator", PriceCodes.NEW_RELEASE);
+        Movie movCinderella = new Movie("Cinderella", new Children());
+        Movie movStarWars = new Movie("Star Wars", new Regular());
+        Movie movGladiator = new Movie("Gladiator", new NewRelease());
 
         // Create customers
         custMickeyMouse = new Customer("Mickey Mouse");
@@ -43,8 +46,7 @@ public class CustomerTest {
                 "\tCinderella\t3.0\n" +
                 "\tStar Wars\t14.0\n" +
                 "\tGladiator\t45.0\n" +
-                "Amount owed is 62.0\n" +
-                "You earned 4 frequent renter points.", statement);
+                "Amount owed is 62.0\n", statement);
     }
 
     @Test
@@ -52,7 +54,7 @@ public class CustomerTest {
         String statement = custMickeyMouse.statementJson();
 
         System.out.print(statement);
-        assertEquals("{customerName:'Mickey Mouse'totalAmount'62.0'frequentRenterPoints:'4'[{movieName:'Cinderella', amount:'3.0'},{movieName:'Star Wars', amount:'14.0'},{movieName:'Gladiator', amount:'45.0'}]}", statement);
+        assertEquals("{customerName:'Mickey Mouse',totalAmount:'62.0',[{movieName:'Cinderella', amount:'3.0'},{movieName:'Star Wars', amount:'14.0'},{movieName:'Gladiator', amount:'45.0'}]}", statement);
     }
 
     @Test

@@ -1,5 +1,8 @@
 package com.scrumtrek.simplestore;
 
+import com.scrumtrek.simplestore.pricecodes.Children;
+import com.scrumtrek.simplestore.pricecodes.NewRelease;
+import com.scrumtrek.simplestore.pricecodes.Regular;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -15,9 +18,9 @@ public class CustomerStateBuilderTest {
     @org.junit.Before
     public void setUp() throws Exception {
         // Create movies
-        Movie movCinderella = new Movie("Cinderella", PriceCodes.CHILDRENS);
-        Movie movStarWars = new Movie("Star Wars", PriceCodes.REGULAR);
-        Movie movGladiator = new Movie("Gladiator", PriceCodes.NEW_RELEASE);
+        Movie movCinderella = new Movie("Cinderella", new Children());
+        Movie movStarWars = new Movie("Star Wars", new Regular());
+        Movie movGladiator = new Movie("Gladiator", new NewRelease());
 
         // Create customers
         custMickeyMouse = new Customer("Mickey Mouse");
@@ -39,7 +42,6 @@ public class CustomerStateBuilderTest {
         CustomerState state = builder.getCustomerState(custMickeyMouse);
 
         assertEquals(62.0, state.getTotalAmount(), 0);
-        assertEquals(4.0, state.getFrequentRenterPoints(), 0);
     }
 
 }

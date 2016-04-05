@@ -7,17 +7,8 @@ import java.util.List;
  * Class represents report data.
  */
 public class CustomerState {
-    private int frequentRenterPoints;
     private double totalAmount;
-    private List<CustomerMovieState> movieStates = new ArrayList<CustomerMovieState>();
-
-    public int getFrequentRenterPoints() {
-        return frequentRenterPoints;
-    }
-
-    public void setFrequentRenterPoints(int frequentRenterPoints) {
-        this.frequentRenterPoints = frequentRenterPoints;
-    }
+    private List<CustomerMovieState> movieStates = new ArrayList<>();
 
     public double getTotalAmount() {
         return totalAmount;

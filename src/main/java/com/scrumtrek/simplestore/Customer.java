@@ -42,16 +42,14 @@ public class Customer {
 
         // Add footer lines
         result += "Amount owed is " + state.getTotalAmount() + "\n";
-        result += "You earned " + state.getFrequentRenterPoints() + " frequent renter points.";
-        return result;
+         return result;
     }
 
     public String statementJson() {
         CustomerState state = stateBuilder.getCustomerState(this);
-        return"{" +
-                "customerName:'" + this.getName() + "'" +
-                "totalAmount'" + state.getTotalAmount() + "'" +
-                "frequentRenterPoints:'" + state.getFrequentRenterPoints() + "'" +
+        return "{" +
+                "customerName:'" + this.getName() + "'," +
+                "totalAmount:'" + state.getTotalAmount() + "'," +
                 getJsonMovieStates(state.getMovieStates()) +
                 "}";
     }
