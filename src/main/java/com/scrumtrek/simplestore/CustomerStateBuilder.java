@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore;
 
-/**
- * Created by serge on 04.04.2016.
+/*
+ Creates CustomerState by customer.
  */
 public class CustomerStateBuilder {
 
@@ -11,23 +11,23 @@ public class CustomerStateBuilder {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 
-        for (Rental each : customer.getRentals()) {
+        for (Rental rental : customer.getRentals()) {
             double thisAmount = 0;
 
-            // Determine amounts for each line
-            if (each.getMovie().getPriceCode() == PriceCodes.REGULAR) {
+            // Determine amounts for rental line
+            if (rental.getMovie().getPriceCode() == PriceCodes.REGULAR) {
                 thisAmount += 2;
-                if (each.getDaysRented() > 2) {
-                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+                if (rental.getDaysRented() > 2) {
+                    thisAmount += (rental.getDaysRented() - 2) * 1.5;
                 }
 
-            } else if (each.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) {
-                thisAmount += each.getDaysRented() * 3;
+            } else if (rental.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) {
+                thisAmount += rental.getDaysRented() * 3;
 
-            } else if (each.getMovie().getPriceCode() == PriceCodes.CHILDRENS) {
+            } else if (rental.getMovie().getPriceCode() == PriceCodes.CHILDRENS) {
                 thisAmount += 1.5;
-                if (each.getDaysRented() > 3) {
-                    thisAmount = (each.getDaysRented() - 3) * 1.5;
+                if (rental.getDaysRented() > 3) {
+                    thisAmount = (rental.getDaysRented() - 3) * 1.5;
                 }
             }
 
@@ -35,12 +35,12 @@ public class CustomerStateBuilder {
             frequentRenterPoints++;
 
             // Add bonus for a two-day new-release rental
-            if ((each.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) && (each.getDaysRented() > 1)) {
+            if ((rental.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) && (rental.getDaysRented() > 1)) {
                 frequentRenterPoints++;
             }
 
             totalAmount += thisAmount;
-            result.addMovieStates(new CustomerMovieState(each.getMovie(), thisAmount));
+            result.addMovieStates(new CustomerMovieState(rental.getMovie(), thisAmount));
         }
         result.setTotalAmount(totalAmount);
         result.setFrequentRenterPoints(frequentRenterPoints);

@@ -3,8 +3,8 @@ package com.scrumtrek.simplestore;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by serge on 04.04.2016.
+/*
+ Class represents report data.
  */
 public class CustomerState {
     private int frequentRenterPoints;
