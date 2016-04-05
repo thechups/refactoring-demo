@@ -5,24 +5,24 @@ import java.util.List;
 
 public class Customer {
     private CustomerStateBuilder stateBuilder = new CustomerStateBuilder();
-    private String m_Name;
-    private List<Rental> m_Rentals = new ArrayList<>();
+    private String name;
+    private List<Rental> rentals = new ArrayList<>();
 
     public Customer(String name) {
-        m_Name = name;
+        this.name = name;
     }
 
     public List<Rental> getRentals() {
-        return new ArrayList<>(m_Rentals);
+        return new ArrayList<>(rentals);
     }
 
     public String getName() {
-        return m_Name;
+        return name;
     }
 
 
     public void addRental(Rental arg) {
-        m_Rentals.add(arg);
+        rentals.add(arg);
     }
 
     public String Statement() {
@@ -30,7 +30,7 @@ public class Customer {
 
         CustomerState state = stateBuilder.GetCustomerState(this);
 
-        String result = "Rental record for " + m_Name + "\n";
+        String result = "Rental record for " + name + "\n";
 
         for (CustomerMovieState movieState : state.getMovieStates()) {
             result += "\t" + movieState.getMovie().getTitle() + "\t" + movieState.getAmount() + "\n";
