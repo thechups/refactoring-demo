@@ -3,9 +3,9 @@ package com.scrumtrek.simplestore;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-Class customer. Contains it`s rentals
-and call reportBuilder to create reports.
+/**
+ * Class customer. Contains it`s rentals
+ * and call reportBuilder to create reports.
  */
 public class Customer {
     private CustomerStateBuilder stateBuilder = new CustomerStateBuilder();

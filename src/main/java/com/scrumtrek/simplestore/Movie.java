@@ -1,9 +1,9 @@
 package com.scrumtrek.simplestore;
 
-/*
-Class movie.
-contains movie name and it`s price code.
-*/
+/**
+ * Class movie.
+ * contains movie name and it`s price code.
+ */
 public class Movie {
     private String title;
     private PriceCodes priceCode;

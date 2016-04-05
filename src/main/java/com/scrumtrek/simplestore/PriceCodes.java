@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore;
 
-/*
-Price codes types.
+/**
+ * Price codes types.
  */
 public enum PriceCodes {
     REGULAR,
