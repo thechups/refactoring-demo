@@ -9,6 +9,7 @@ public class Children extends PriceCode {
     public Children(){
         setName("Children");
     }
+
     @Override
     public double getAmount(int daysRented) {
         double amount = 1.50;
