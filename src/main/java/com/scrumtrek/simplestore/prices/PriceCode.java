@@ -10,6 +10,6 @@ public abstract class PriceCode {
     protected abstract double getRentAmount(int daysRented);
 
     public double getRentAmount(int daysRented, double discountPercent) {
-        return getRentAmount(daysRented) * discountPercent / 100.0;
+        return getRentAmount(daysRented) - getRentAmount(daysRented) * discountPercent / 100.0;
     }
 }

@@ -26,13 +26,17 @@ public abstract class AbstractReport {
         return getHeader()+getFooter();
     }
 
+    public String getMidleReport(){
+        countFullRentalAmountAndFreqPoints();
+        return getHeader()+getMiddleBody()+getFooter();
+    }
     public String getDetailReport(){
         countFullRentalAmountAndFreqPoints();
-        return getHeader()+getBody()+getFooter();
+        return getHeader()+getDetailedBody()+getFooter();
     }
 
     protected abstract String getHeader();
-    protected abstract String getBody();
+    protected abstract String getMiddleBody();
     protected abstract String getDetailedBody();
     protected abstract String getFooter();
 }

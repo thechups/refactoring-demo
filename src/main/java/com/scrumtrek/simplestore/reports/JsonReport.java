@@ -20,7 +20,7 @@ public class JsonReport extends AbstractReport {
     }
 
     @Override
-    protected String getBody() {
+    protected String getMiddleBody() {
         StringBuilder reportBuilder = new StringBuilder();
         for(Rental rental : customer.getRentals()){
             reportBuilder.append(" Rental {\n");

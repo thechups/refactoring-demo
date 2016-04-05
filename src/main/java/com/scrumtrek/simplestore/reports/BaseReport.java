@@ -30,7 +30,7 @@ public class BaseReport extends AbstractReport {
     }
 
     @Override
-    protected String getBody() {
+    protected String getMiddleBody() {
         StringBuilder reportBuilder = new StringBuilder();
         for (Rental rental : customer.getRentals()) {
             double rentalAmount = rental.getAmount();
