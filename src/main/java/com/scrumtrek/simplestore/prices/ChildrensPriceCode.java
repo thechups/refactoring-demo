@@ -1,7 +1,7 @@
 package com.scrumtrek.simplestore.prices;
 
 
-public class ChildrensPriceCode implements IPriceCode{
+public class ChildrensPriceCode extends PriceCode{
     /**
      * Calculate amount with modifier which depends
      * on 3 days threshold

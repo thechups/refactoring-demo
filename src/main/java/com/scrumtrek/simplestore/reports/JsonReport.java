@@ -24,6 +24,17 @@ public class JsonReport extends AbstractReport {
         StringBuilder reportBuilder = new StringBuilder();
         for(Rental rental : customer.getRentals()){
             reportBuilder.append(" Rental {\n");
+            reportBuilder.append("  rentAmount:").append(rental.getAmount()).append(",\n");
+            reportBuilder.append(" },\n");
+        }
+        return reportBuilder.toString();
+    }
+
+    @Override
+    protected String getDetailedBody() {
+        StringBuilder reportBuilder = new StringBuilder();
+        for(Rental rental : customer.getRentals()){
+            reportBuilder.append(" Rental {\n");
             reportBuilder.append("  title:").append(rental.getMovie().getTitle()).append(",\n");
             reportBuilder.append("  rentAmount:").append(rental.getAmount()).append(",\n");
             reportBuilder.append(" },\n");
@@ -39,4 +50,6 @@ public class JsonReport extends AbstractReport {
 
         return reportBuilder.toString();
     }
+
+
 }

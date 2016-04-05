@@ -7,6 +7,8 @@ public class Customer {
 	private String name;
 	private List<Rental> rentals = new ArrayList<Rental>();
 
+	private double discountPercent = 0;
+
 	public Customer(String name) {
 		this.name = name;
 	}
@@ -21,6 +23,14 @@ public class Customer {
 
 	public List<Rental> getRentals() {
 		return rentals;
+	}
+
+	public double getDiscountPercent() {
+		return discountPercent;
+	}
+
+	public void setDiscountPercent(double discountPercent) {
+		this.discountPercent = discountPercent;
 	}
 }
 

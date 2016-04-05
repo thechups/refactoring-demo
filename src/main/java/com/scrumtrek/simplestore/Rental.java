@@ -17,8 +17,11 @@ public class Rental {
 		return movie;
 	}
 
+	public double getAmount(double discount){
+		return getMovie().getPriceCode().getRentAmount(getDaysRented(), discount);
+	}
 	public double getAmount(){
-		return getMovie().getPriceCode().getRentAmount(getDaysRented());
+		return getAmount(0);
 	}
 
 }

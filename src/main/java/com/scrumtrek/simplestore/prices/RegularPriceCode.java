@@ -1,6 +1,6 @@
 package com.scrumtrek.simplestore.prices;
 
-public class RegularPriceCode implements IPriceCode {
+public class RegularPriceCode extends PriceCode {
     protected double BASE_AMOUNT = 2.0;
     protected double DAYS_THRESHOLD = 2;
 

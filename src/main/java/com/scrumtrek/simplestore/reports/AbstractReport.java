@@ -14,8 +14,10 @@ public abstract class AbstractReport {
 
     protected void countFullRentalAmountAndFreqPoints(){
         fullRentalAmount = 0;
+        double discount = customer.getDiscountPercent();
+
         for(Rental rental : customer.getRentals()) {
-            fullRentalAmount += rental.getAmount();
+            fullRentalAmount += rental.getAmount(discount);
         }
     }
 
@@ -31,5 +33,6 @@ public abstract class AbstractReport {
 
     protected abstract String getHeader();
     protected abstract String getBody();
+    protected abstract String getDetailedBody();
     protected abstract String getFooter();
 }

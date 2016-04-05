@@ -35,6 +35,18 @@ public class BaseReport extends AbstractReport {
         for (Rental rental : customer.getRentals()) {
             double rentalAmount = rental.getAmount();
             reportBuilder.append("\t")
+                    .append(rentalAmount)//add movie rental price to report
+                    .append("\n");
+        }
+
+        return reportBuilder.toString();
+    }
+
+    protected String getDetailedBody() {
+        StringBuilder reportBuilder = new StringBuilder();
+        for (Rental rental : customer.getRentals()) {
+            double rentalAmount = rental.getAmount();
+            reportBuilder.append("\t")
                     .append(rental.getMovie().getTitle())//add move title to report
                     .append("\t")
                     .append(rentalAmount)//add movie rental price to report
