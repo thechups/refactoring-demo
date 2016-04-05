@@ -42,6 +42,7 @@ public class BaseReport extends AbstractReport {
         return reportBuilder.toString();
     }
 
+    @Override
     protected String getDetailedBody() {
         StringBuilder reportBuilder = new StringBuilder();
         for (Rental rental : customer.getRentals()) {

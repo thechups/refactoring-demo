@@ -25,6 +25,17 @@ public class TestPriceCode {
     }
 
     @Test
+    public void testChildrensPriceCodeWithDiscount(){
+        Movie m = new Movie("Childrens movie one day",new ChildrensPriceCode());
+        Rental rent = new Rental(m, 1);
+        assertEquals(0.75, rent.getAmount(50));
+
+        m = new Movie("Childrens movie four days",new ChildrensPriceCode());
+        rent = new Rental(m, 4);
+        assertEquals(0.75, rent.getAmount(50));
+    }
+
+    @Test
     public void testChildrensPriceCode(){
         Movie m = new Movie("Childrens movie one day",new ChildrensPriceCode());
         Rental rent = new Rental(m, 1);
