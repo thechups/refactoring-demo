@@ -12,9 +12,9 @@ public class CustomerTest {
     @org.junit.Before
     public void setUp() throws Exception {
         // Create movies
-        Movie movCinderella = new Movie("Cinderella", PriceCodes.Childrens);
-        Movie movStarWars = new Movie("Star Wars", PriceCodes.Regular);
-        Movie movGladiator = new Movie("Gladiator", PriceCodes.NewRelease);
+        Movie movCinderella = new Movie("Cinderella", PriceCodes.CHILDRENS);
+        Movie movStarWars = new Movie("Star Wars", PriceCodes.REGULAR);
+        Movie movGladiator = new Movie("Gladiator", PriceCodes.NEW_RELEASE);
 
         // Create customers
         custMickeyMouse = new Customer("Mickey Mouse");
@@ -37,7 +37,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement() {
-        String statement = custMickeyMouse.Statement();
+        String statement = custMickeyMouse.statement();
 
         assertEquals("Rental record for Mickey Mouse\n" +
                 "\tCinderella\t3.0\n" +
@@ -49,7 +49,7 @@ public class CustomerTest {
 
     @Test
     public void testStatementJson() {
-        String statement = custMickeyMouse.StatementJson();
+        String statement = custMickeyMouse.statementJson();
 
         System.out.print(statement);
         assertEquals("{customerName:'Mickey Mouse'totalAmount'62.0'frequentRenterPoints:'4'[{movieName:'Cinderella', amount:'3.0'},{movieName:'Star Wars', amount:'14.0'},{movieName:'Gladiator', amount:'45.0'}]}", statement);

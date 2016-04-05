@@ -25,10 +25,10 @@ public class Customer {
         rentals.add(arg);
     }
 
-    public String Statement() {
+    public String statement() {
 
 
-        CustomerState state = stateBuilder.GetCustomerState(this);
+        CustomerState state = stateBuilder.getCustomerState(this);
 
         String result = "Rental record for " + name + "\n";
 
@@ -42,8 +42,8 @@ public class Customer {
         return result;
     }
 
-    public String StatementJson() {
-        CustomerState state = stateBuilder.GetCustomerState(this);
+    public String statementJson() {
+        CustomerState state = stateBuilder.getCustomerState(this);
         String result = "{" +
                 "customerName:'" + this.getName() + "'" +
                 "totalAmount'" + state.getTotalAmount() + "'" +

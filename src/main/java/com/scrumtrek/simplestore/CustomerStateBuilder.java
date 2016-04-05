@@ -5,7 +5,7 @@ package com.scrumtrek.simplestore;
  */
 public class CustomerStateBuilder {
 
-    public CustomerState GetCustomerState(Customer customer) {
+    public CustomerState getCustomerState(Customer customer) {
 
         CustomerState result = new CustomerState();
         double totalAmount = 0;
@@ -15,16 +15,16 @@ public class CustomerStateBuilder {
             double thisAmount = 0;
 
             // Determine amounts for each line
-            if (each.getMovie().getPriceCode() == PriceCodes.Regular) {
+            if (each.getMovie().getPriceCode() == PriceCodes.REGULAR) {
                 thisAmount += 2;
                 if (each.getDaysRented() > 2) {
                     thisAmount += (each.getDaysRented() - 2) * 1.5;
                 }
 
-            } else if (each.getMovie().getPriceCode() == PriceCodes.NewRelease) {
+            } else if (each.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) {
                 thisAmount += each.getDaysRented() * 3;
 
-            } else if (each.getMovie().getPriceCode() == PriceCodes.Childrens) {
+            } else if (each.getMovie().getPriceCode() == PriceCodes.CHILDRENS) {
                 thisAmount += 1.5;
                 if (each.getDaysRented() > 3) {
                     thisAmount = (each.getDaysRented() - 3) * 1.5;
@@ -35,7 +35,7 @@ public class CustomerStateBuilder {
             frequentRenterPoints++;
 
             // Add bonus for a two-day new-release rental
-            if ((each.getMovie().getPriceCode() == PriceCodes.NewRelease) && (each.getDaysRented() > 1)) {
+            if ((each.getMovie().getPriceCode() == PriceCodes.NEW_RELEASE) && (each.getDaysRented() > 1)) {
                 frequentRenterPoints++;
             }
 

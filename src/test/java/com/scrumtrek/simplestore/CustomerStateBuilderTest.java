@@ -15,9 +15,9 @@ public class CustomerStateBuilderTest {
     @org.junit.Before
     public void setUp() throws Exception {
         // Create movies
-        Movie movCinderella = new Movie("Cinderella", PriceCodes.Childrens);
-        Movie movStarWars = new Movie("Star Wars", PriceCodes.Regular);
-        Movie movGladiator = new Movie("Gladiator", PriceCodes.NewRelease);
+        Movie movCinderella = new Movie("Cinderella", PriceCodes.CHILDRENS);
+        Movie movStarWars = new Movie("Star Wars", PriceCodes.REGULAR);
+        Movie movGladiator = new Movie("Gladiator", PriceCodes.NEW_RELEASE);
 
         // Create customers
         custMickeyMouse = new Customer("Mickey Mouse");
@@ -36,7 +36,7 @@ public class CustomerStateBuilderTest {
     @Test
     public void getCustomerState() throws Exception {
         CustomerStateBuilder builder = new CustomerStateBuilder();
-        CustomerState state = builder.GetCustomerState(custMickeyMouse);
+        CustomerState state = builder.getCustomerState(custMickeyMouse);
 
         assertEquals(62.0, state.getTotalAmount(), 0);
         assertEquals(4.0, state.getFrequentRenterPoints(), 0);
