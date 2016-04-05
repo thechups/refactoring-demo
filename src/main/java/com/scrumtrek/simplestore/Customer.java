@@ -44,13 +44,12 @@ public class Customer {
 
     public String statementJson() {
         CustomerState state = stateBuilder.getCustomerState(this);
-        String result = "{" +
+        return"{" +
                 "customerName:'" + this.getName() + "'" +
                 "totalAmount'" + state.getTotalAmount() + "'" +
                 "frequentRenterPoints:'" + state.getFrequentRenterPoints() + "'" +
                 getJsonMovieStates(state.getMovieStates()) +
                 "}";
-        return result;
     }
 
     private String getJsonMovieStates(List<CustomerMovieState> states) {
