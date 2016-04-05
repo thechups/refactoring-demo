@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class MovieTest {
     @Test
-    public void ConstructorShouldProperInitialize(){
+    public void ConstructorShouldProperInitialize() {
         Movie m = new Movie("Movie1", PriceCodes.Childrens);
 
         assertEquals("Movie1", m.getTitle());

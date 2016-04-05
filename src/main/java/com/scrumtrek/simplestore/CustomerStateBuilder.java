@@ -4,13 +4,13 @@ package com.scrumtrek.simplestore;
  * Created by serge on 04.04.2016.
  */
 public class CustomerStateBuilder {
-    public CustomerStateBuilder(){
+    public CustomerStateBuilder() {
 
     }
 
-    public CustomerState GetCustomerState(Customer customer){
+    public CustomerState GetCustomerState(Customer customer) {
 
-        CustomerState result =new CustomerState();
+        CustomerState result = new CustomerState();
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 

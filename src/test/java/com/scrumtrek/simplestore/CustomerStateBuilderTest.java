@@ -2,7 +2,7 @@ package com.scrumtrek.simplestore;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by serge on 04.04.2016.
@@ -35,11 +35,11 @@ public class CustomerStateBuilderTest {
 
     @Test
     public void getCustomerState() throws Exception {
-            CustomerStateBuilder builder = new CustomerStateBuilder();
+        CustomerStateBuilder builder = new CustomerStateBuilder();
         CustomerState state = builder.GetCustomerState(custMickeyMouse);
 
-        assertEquals(62.0, state.getTotalAmount(),0);
-        assertEquals(4.0, state.getFrequentRenterPoints(),0);
+        assertEquals(62.0, state.getTotalAmount(), 0);
+        assertEquals(4.0, state.getFrequentRenterPoints(), 0);
     }
 
 }

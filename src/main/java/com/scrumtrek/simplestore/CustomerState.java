@@ -9,14 +9,11 @@ import java.util.List;
 public class CustomerState {
     private int frequentRenterPoints;
     private double totalAmount;
-    private List<CustomerMovieState> movieStates = new ArrayList<CustomerMovieState>() ;
+    private List<CustomerMovieState> movieStates = new ArrayList<CustomerMovieState>();
 
 
-
-    public CustomerState(){
-
+    public CustomerState() {
     }
-
 
     public int getFrequentRenterPoints() {
         return frequentRenterPoints;
