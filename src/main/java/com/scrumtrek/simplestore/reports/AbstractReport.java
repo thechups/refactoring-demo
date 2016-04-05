@@ -3,6 +3,9 @@ package com.scrumtrek.simplestore.reports;
 import com.scrumtrek.simplestore.Customer;
 import com.scrumtrek.simplestore.Rental;
 
+/**
+ * Abstract class for report building
+ */
 public abstract class AbstractReport {
     protected double fullRentalAmount;
     protected Customer customer;
@@ -21,15 +24,28 @@ public abstract class AbstractReport {
         }
     }
 
+    /**
+     * Builds simple report with header and footer only
+     * @return
+     */
     public String getSimpleReport(){
         countFullRentalAmountAndFreqPoints();
         return getHeader()+getFooter();
     }
 
-    public String getMidleReport(){
+    /**
+     * Builds report with header, rents and footer only
+     * @return
+     */
+    public String getMiddleReport(){
         countFullRentalAmountAndFreqPoints();
         return getHeader()+getMiddleBody()+getFooter();
     }
+
+    /**
+     * Builds report with header, rents, movies and footer only
+     * @return
+     */
     public String getDetailReport(){
         countFullRentalAmountAndFreqPoints();
         return getHeader()+getDetailedBody()+getFooter();
